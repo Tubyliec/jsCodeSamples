@@ -15,19 +15,19 @@ function quickSorting(arr) {
   if (arr.length <= 2) {
     return arr;
   }
-  const BASE_INDEX = Math.floor(arr.length / 2);
-  const BASE_ITEM = arr[BASE_INDEX];
-  const GREATER_ITEMS = [];
-  const LESS_ITEMS = [];
+  const baseIndex = Math.floor(arr.length / 2);
+  const baseItem = arr[baseIndex];
+  const greaterItems = [];
+  const lessItems = [];
   for (let i = 0; i < arr.length; i += 1) {
-    if (arr[i] < BASE_ITEM && i !== BASE_INDEX) {
-      LESS_ITEMS.push(arr[i]);
+    if (arr[i] < baseItem && i !== baseIndex) {
+      lessItems.push(arr[i]);
     }
-    if (arr[i] > BASE_ITEM && i !== BASE_INDEX) {
-      GREATER_ITEMS.push(arr[i]);
+    if (arr[i] > baseItem && i !== baseIndex) {
+      greaterItems.push(arr[i]);
     }
   }
-  return [...sortByAsc(LESS_ITEMS), BASE_ITEM, ...sortByAsc(GREATER_ITEMS)];
+  return [...sortByAsc(lessItems), baseItem, ...sortByAsc(greaterItems)];
 }
 
 // Second
@@ -36,29 +36,29 @@ function sortByAsc(arr) {
   if (arr.length < 2) {
     return arr;
   }
-  const NEW_ARRAY = arr;
-  const LESS_ARRAY = [];
-  const GREATER_ARRAY = [];
-  const BASE_ITEM = arr[0];
+  const newArray = arr;
+  const lessArray = [];
+  const greaterArray = [];
+  const baseItem = arr[0];
 
   for (let i = 1; i < arr.length; i += 1) {
-    if (arr[i] > BASE_ITEM) {
-      GREATER_ARRAY[GREATER_ARRAY.length] = arr[i];
+    if (arr[i] > baseItem) {
+      greaterArray[greaterArray.length] = arr[i];
     } else {
-      LESS_ARRAY[LESS_ARRAY.length] = arr[i];
+      lessArray[lessArray.length] = arr[i];
     }
   }
 
-  const SORTED_ARRAY = [
-    ...sortByAsc(LESS_ARRAY),
-    BASE_ITEM,
-    ...sortByAsc(GREATER_ARRAY),
+  const sortedArray = [
+    ...sortByAsc(lessArray),
+    baseItem,
+    ...sortByAsc(greaterArray),
   ];
 
   for (let i = 0; i < arr.length; i += 1) {
-    NEW_ARRAY[i] = SORTED_ARRAY[i];
+    newArray[i] = sortedArray[i];
   }
-  return NEW_ARRAY;
+  return newArray;
 }
 
 console.log(quickSorting(firstArray));

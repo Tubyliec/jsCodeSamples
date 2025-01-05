@@ -16,24 +16,24 @@ class BinarySearchTree {
   }
 
   add(data) {
-    const NEW_NODE = new Node(data);
+    const newNode = new Node(data);
     if (!this.rootItem) {
-      this.rootItem = NEW_NODE;
+      this.rootItem = newNode;
       return;
     }
 
     let currentNode = this.rootItem;
 
     while (currentNode) {
-      if (NEW_NODE.data < currentNode.data) {
+      if (newNode.data < currentNode.data) {
         if (!currentNode.leftItem) {
-          currentNode.leftItem = NEW_NODE;
+          currentNode.leftItem = newNode;
           return;
         }
         currentNode = currentNode.leftItem;
-      } else if (NEW_NODE.data > currentNode.data) {
+      } else if (newNode.data > currentNode.data) {
         if (!currentNode.rightItem) {
-          currentNode.rightItem = NEW_NODE;
+          currentNode.rightItem = newNode;
           return;
         }
         currentNode = currentNode.rightItem;

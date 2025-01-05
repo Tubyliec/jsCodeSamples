@@ -42,4 +42,4 @@ queue.enqueue(6);
 queue.enqueue(8);
 queue.enqueue(7);
 
-console.log(queue.getUnderlyingList()); // returns { value: 3, next: null }
+console.log(queue.getUnderlyingList());
