@@ -12,7 +12,7 @@ console.log(arrayGenerator(100));
 // First
 
 function quickSorting(arr) {
-  if (arr.length <= 2) {
+  if (arr.length <= 1) {
     return arr;
   }
   const baseIndex = Math.floor(arr.length / 2);
@@ -36,7 +36,7 @@ function sortByAsc(arr) {
   if (arr.length < 2) {
     return arr;
   }
-  const newArray = arr;
+  const newArray = [...arr];
   const lessArray = [];
   const greaterArray = [];
   const baseItem = arr[0];
